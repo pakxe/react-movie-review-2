@@ -136,7 +136,7 @@ Please change the parent <Route path="${D}"> to <Route path="${D==="/"?"*":`${D}
           cursor: pointer;
           display: flex;
           align-items: center;
-        `,children:[...Array(5)].map((R,_)=>Q("img",{src:`/assets/star_${r>=(_+1)*2?"filled":"empty"}.png`,onDragStart:E=>E.preventDefault()},_))}),Q(Tt,{type:"body",children:r===-1?0:r}),Q(Tt,{type:"body",children:r===-1?"별점을 입력해주세요.":DS[Math.floor(r/2)]})]})},US=({onClose:n,isOpen:r})=>r?Be("div",{css:ve`
+        `,children:[...Array(5)].map((R,_)=>Q("img",{src:`assets/star_${r>=(_+1)*2?"filled":"empty"}.png`,onDragStart:E=>E.preventDefault()},_))}),Q(Tt,{type:"body",children:r===-1?0:r}),Q(Tt,{type:"body",children:r===-1?"별점을 입력해주세요.":DS[Math.floor(r/2)]})]})},US=({onClose:n,isOpen:r})=>r?Be("div",{css:ve`
         z-index: 3;
         width: 100vw;
         height: 100vh;
@@ -206,7 +206,7 @@ Please change the parent <Route path="${D}"> to <Route path="${D==="/"?"*":`${D}
                   gap: 1.5rem;
                 `,children:[Q(Tt,{children:p.map(({name:y})=>y).join(", ")}),Be("div",{css:ve`
                     display: flex;
-                  `,children:[Q("img",{src:"/assets/star_filled.png"}),Q(Tt,{children:m})]})]}),Q(Tt,{children:f})]}),Q(jS,{id:s})]})]})]})})},HS={MOVIE_DETAIL:"movieDetail"},Fm=L.createContext(null),WS=()=>{const[n,r]=L.useState(new Map),s=(a,f)=>{console.log("h"),r(d=>{const p=new Map(d);return p.set(a,{id:a,isOpen:!0,cb:f}),p})},l=a=>{n.has(a)&&r(f=>{const d=new Map(f),p=d.get(a);return p&&(p.isOpen=!1,p.cb(p.isOpen,()=>l(a))),d})};return{modals:n,open:s,close:l}},VS=()=>{const n=L.useContext(Fm);if(!n)throw new Error("useModal must be used within a ModalProvider");return n},QS=({children:n})=>{const r=WS();return Be(Fm.Provider,{value:{...r},children:[Array.from(r.modals).map(([s,l])=>l.isOpen&&l.cb(l.isOpen,()=>r.close(s))),n]})},qS=n=>{const{open:r}=VS();return{open:()=>r(HS.MOVIE_DETAIL,(s,l)=>Q(bS,{isOpen:s,onClose:l,id:n}))}},KS=({id:n,title:r,poster_path:s,vote_average:l})=>{const{open:a}=qS(n);return Be("div",{onClick:a,css:ve`
+                  `,children:[Q("img",{src:"assets/star_filled.png"}),Q(Tt,{children:m})]})]}),Q(Tt,{children:f})]}),Q(jS,{id:s})]})]})]})})},HS={MOVIE_DETAIL:"movieDetail"},Fm=L.createContext(null),WS=()=>{const[n,r]=L.useState(new Map),s=(a,f)=>{console.log("h"),r(d=>{const p=new Map(d);return p.set(a,{id:a,isOpen:!0,cb:f}),p})},l=a=>{n.has(a)&&r(f=>{const d=new Map(f),p=d.get(a);return p&&(p.isOpen=!1,p.cb(p.isOpen,()=>l(a))),d})};return{modals:n,open:s,close:l}},VS=()=>{const n=L.useContext(Fm);if(!n)throw new Error("useModal must be used within a ModalProvider");return n},QS=({children:n})=>{const r=WS();return Be(Fm.Provider,{value:{...r},children:[Array.from(r.modals).map(([s,l])=>l.isOpen&&l.cb(l.isOpen,()=>r.close(s))),n]})},qS=n=>{const{open:r}=VS();return{open:()=>r(HS.MOVIE_DETAIL,(s,l)=>Q(bS,{isOpen:s,onClose:l,id:n}))}},KS=({id:n,title:r,poster_path:s,vote_average:l})=>{const{open:a}=qS(n);return Be("div",{onClick:a,css:ve`
         cursor: pointer;
         width: 180px;
         display: flex;
@@ -221,7 +221,7 @@ Please change the parent <Route path="${D}"> to <Route path="${D==="/"?"*":`${D}
           -webkit-line-clamp: 1;
           -webkit-box-orient: vertical;
           display: -webkit-box;
-        `,children:r}),Be(Tt,{type:"body",children:[Q("img",{src:"/assets/star_filled.png",alt:"별점"}),l]})]})},Dm=({children:n})=>Q("ol",{css:ve`
+        `,children:r}),Be(Tt,{type:"body",children:[Q("img",{src:"assets/star_filled.png",alt:"별점"}),l]})]})},Dm=({children:n})=>Q("ol",{css:ve`
         display: grid;
 
         gap: 4rem; /* 각 아이템 간 간격 */
