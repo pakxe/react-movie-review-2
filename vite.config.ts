@@ -6,7 +6,7 @@ export default defineConfig(({mode}) => {
   const isDevelopment = mode === 'development';
 
   return {
-    base: isDevelopment ? '/' : '/react-movie-review/',
+    base: isDevelopment ? '/' : '/react-movie-review-2/',
     plugins: [react()],
   };
 });

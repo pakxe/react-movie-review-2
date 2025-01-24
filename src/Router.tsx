@@ -4,7 +4,7 @@ import KeywordMovieListPage from './pages/KeywordMovieListPage';
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-movie-review-2">
       <Routes>
         <Route path="/" element={<PopularMovieListPage />} />
         <Route path="/:keyword" element={<KeywordMovieListPage />} />
