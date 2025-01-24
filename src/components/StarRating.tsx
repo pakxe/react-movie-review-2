@@ -16,7 +16,8 @@ const setRatingInLocalStorage = (id: number, rating: number) => {
 const getRatingFromLocalStorage = (id: number) => {
   const ratingMap = new Map(JSON.parse(localStorage.getItem(STORAGE_KEYS.RATING) || '[]'));
 
-  return (ratingMap.get(id) as number) ?? 0;
+  // 별점이 없을 경우 -1을 반환
+  return (ratingMap.get(id) as number) ?? -1;
 };
 
 type Props = {
@@ -111,8 +112,8 @@ const StarRating = ({id}: Props) => {
           />
         ))}
       </div>
-      <Text type="body">{rating}</Text>
-      <Text type="body">{RATING[Math.floor(rating / 2)]}</Text>
+      <Text type="body">{rating === -1 ? 0 : rating}</Text>
+      <Text type="body">{rating === -1 ? '별점을 입력해주세요.' : RATING[Math.floor(rating / 2)]}</Text>
     </div>
   );
 };
