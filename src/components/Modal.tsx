@@ -68,6 +68,8 @@ const Content = ({children}: WithChildren & Pick<ModalProps, 'onClose'>) => {
 };
 
 const ModalCloseButton = ({onClose}: Pick<ModalProps, 'onClose'>) => {
+  const theme = useTheme();
+
   return (
     <button
       onClick={onClose}

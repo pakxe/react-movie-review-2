@@ -1,4 +1,4 @@
-import {css, useTheme} from '@emotion/react';
+import {css} from '@emotion/react';
 import useGetMovieDetail from '../queries/useGetMovieDetail';
 import {ModalProps} from '../types/modal';
 import Line from './Line';
@@ -13,7 +13,6 @@ type Props = ModalProps & {
 
 const MovieDetailModal = ({isOpen, onClose, id}: Props) => {
   const {movieDetail} = useGetMovieDetail(id);
-  const theme = useTheme();
 
   if (!movieDetail) {
     return <ModalSkeleton onClose={onClose} isOpen={isOpen} />;
