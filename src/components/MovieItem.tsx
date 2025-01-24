@@ -40,7 +40,7 @@ const MovieItem = ({id, title, poster_path, vote_average}: Props) => {
         {title}
       </Text>
       <Text type="body">
-        <img src="/assets/star_filled.png" alt="별점" />
+        <img src="assets/star_filled.png" alt="별점" />
         {vote_average}
       </Text>
     </div>

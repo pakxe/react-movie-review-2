@@ -107,7 +107,7 @@ const StarRating = ({id}: Props) => {
         {[...Array(5)].map((_, index) => (
           <img
             key={index}
-            src={`/assets/star_${rating >= (index + 1) * 2 ? 'filled' : 'empty'}.png`}
+            src={`assets/star_${rating >= (index + 1) * 2 ? 'filled' : 'empty'}.png`}
             onDragStart={event => event.preventDefault()}
           />
         ))}

@@ -96,7 +96,7 @@ const MovieDetailModal = ({isOpen, onClose, id}: Props) => {
                     display: flex;
                   `}
                 >
-                  <img src="/assets/star_filled.png" />
+                  <img src="assets/star_filled.png" />
                   <Text>{vote_average}</Text>
                 </div>
               </div>
