@@ -90,10 +90,10 @@ const StarRating = ({id}: Props) => {
       <div
         ref={containerRef}
         className="star-rating-container"
-        onMouseMove={handleMouseMove} // 마우스 이동 시 별점 변경
+        onMouseMove={handleMouseMove} // 드래그 시 별점 변경
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
-        onClick={handleClick}
+        onClick={handleClick} // 클릭 시 별점 변경
         css={css`
           position: relative;
           width: min-content;
