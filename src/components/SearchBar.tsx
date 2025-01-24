@@ -15,7 +15,7 @@ const SearchBar = () => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      handleSearch(); // Enter 키를 누르면 검색
+      handleSearch();
     }
   };
 
