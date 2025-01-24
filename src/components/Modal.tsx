@@ -1,10 +1,15 @@
 import {css, useTheme} from '@emotion/react';
 import {ModalProps} from '../types/modal';
 import {WithChildren} from '../types/with';
+import {useEffect} from 'react';
+import useKeyDown from '../hooks/useKeyDown';
 
 type Props = WithChildren & ModalProps & {};
 
+// TODO: 스크롤 막기
 const Modal = ({children, onClose, isOpen}: Props) => {
+  useKeyDown({key: 'Escape', cb: onClose});
+
   if (!isOpen) return null;
 
   // TODO: height, width를 어찌
