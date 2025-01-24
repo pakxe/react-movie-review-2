@@ -8,12 +8,25 @@ const MovieItem = ({id, title, poster_path, vote_average}: Props) => {
   const {open} = useMovieDetailModal(id);
 
   return (
-    <div className="item-card" onClick={open}>
+    <div
+      onClick={open}
+      css={css`
+        cursor: pointer;
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+      `}
+    >
       <img
-        className="item-thumbnail"
         src={`https://image.tmdb.org/t/p/w220_and_h330_face/${poster_path}.jpg`}
         loading="lazy"
         alt={title}
+        css={css`
+          border-radius: 8px;
+          width: 180px;
+          height: 270px;
+          background-size: contain;
+        `}
       />
       <Text
         type="bodyBold"
