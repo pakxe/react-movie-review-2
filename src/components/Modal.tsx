@@ -7,6 +7,7 @@ type Props = WithChildren & ModalProps & {};
 const Modal = ({children, onClose, isOpen}: Props) => {
   if (!isOpen) return null;
 
+  // TODO: height, width를 어찌
   return (
     <div
       css={css`
@@ -65,5 +66,27 @@ const Content = ({children}: WithChildren & Pick<ModalProps, 'onClose'>) => {
     </div>
   );
 };
+
+const ModalCloseButton = ({onClose}: Pick<ModalProps, 'onClose'>) => {
+  return (
+    <button
+      onClick={onClose}
+      css={css`
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: ${theme.colors.gray2};
+      `}
+    >
+      X
+    </button>
+  );
+};
+
+Modal.CloseButton = ModalCloseButton;
 
 export default Modal;

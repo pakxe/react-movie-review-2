@@ -35,21 +35,7 @@ const MovieDetailModal = ({isOpen, onClose, id}: Props) => {
           position: relative;
         `}
       >
-        <button
-          onClick={onClose}
-          css={css`
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: ${theme.colors.gray2};
-          `}
-        >
-          X
-        </button>
+        <Modal.CloseButton onClose={onClose} />
         <Text
           color="gray1"
           type="subTitle"
