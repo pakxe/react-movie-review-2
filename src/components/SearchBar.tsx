@@ -1,7 +1,8 @@
-import {useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 const SearchBar = () => {
+  const [isInputVisible, setIsInputVisible] = useState(window.innerWidth >= 768);
   const ref = useRef<HTMLInputElement | null>(null);
   const navigate = useNavigate();
 
@@ -18,10 +19,27 @@ const SearchBar = () => {
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsInputVisible(false);
+      } else {
+        setIsInputVisible(true);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleInputVisible = () => {
+    setIsInputVisible(prev => !prev);
+  };
+
   return (
     <div className="search-box">
-      <input type="text" placeholder="검색" ref={ref} onKeyDown={handleKeyDown} />
-      <button onClick={handleSearch} className="search-button">
+      {isInputVisible && <input type="text" placeholder="검색" ref={ref} onKeyDown={handleKeyDown} />}
+      <button onClick={isInputVisible ? handleSearch : toggleInputVisible} className="search-button">
         검색
       </button>
     </div>
