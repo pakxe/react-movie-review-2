@@ -18,13 +18,13 @@ type Props = ModalProps & {
 const MovieDetailModal = ({isOpen, onClose, id}: Props) => {
   const {movieDetail, isFetching, refetch} = useGetMovieDetail(id);
   const imgRef = useRef<HTMLImageElement | null>(null);
-  const [imageHeight, setImageHeight] = useState(0);
+  const [imageHeight, setImageHeight] = useState<number | null>(null);
 
   const checkImageWithHeight = (e: SyntheticEvent<HTMLImageElement>) => {
     if (!(e.target instanceof HTMLImageElement)) return;
-
     const img = e.target;
 
+    console.log(img.clientHeight);
     setImageHeight(img.clientHeight);
   };
 
@@ -71,7 +71,11 @@ const MovieDetailModal = ({isOpen, onClose, id}: Props) => {
               </div>
               <Text
                 cssProp={css`
-                  height: ${imageHeight !== 0 ? `${imageHeight - imageHeight * 0.4}px` : '20vh'};
+                  height: ${imageHeight !== null
+                    ? imageHeight === 0
+                      ? '20vh'
+                      : `${imageHeight - imageHeight * 0.4}px`
+                    : 0};
 
                   overflow-y: auto;
                 `}
