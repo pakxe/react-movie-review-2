@@ -7,16 +7,25 @@ import Text from '../Text';
 import SkeletonMovieDetailModal from './SkeletonMovieDetailModal';
 import ImageWithSkeleton from '../ImageWithSkeleton';
 import style from './movieDetailModalStyle';
+import RetryFallback from '../RetryFallback';
 
 type Props = ModalProps & {
   id: number;
 };
 
 const MovieDetailModal = ({isOpen, onClose, id}: Props) => {
-  const {movieDetail} = useGetMovieDetail(id);
+  const {movieDetail, isFetching, refetch} = useGetMovieDetail(id);
+
+  if (isFetching) {
+    return <SkeletonMovieDetailModal onClose={onClose} isOpen={isOpen} />;
+  }
 
   if (!movieDetail) {
-    return <SkeletonMovieDetailModal onClose={onClose} isOpen={isOpen} />;
+    return (
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <RetryFallback onRetry={refetch} />
+      </Modal>
+    );
   }
 
   const {title, overview, poster_path, genres, vote_average} = movieDetail;
