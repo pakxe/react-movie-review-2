@@ -67,7 +67,10 @@ const Content = ({children}: WithChildren & Pick<ModalProps, 'onClose'>) => {
 
         @media (max-width: 768px) {
           height: 50%;
+          width: 100%;
         }
+
+        border-radius: 8px;
       `}
     >
       {children}
