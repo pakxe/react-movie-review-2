@@ -15,7 +15,15 @@ const Image = ({cssProp, minHeight, minWidth, ...rest}: Props) => {
     <div css={cssProp}>
       <img onLoad={() => setIsLoaded(true)} css={isLoaded ? cssProp : undefined} {...rest} />
       {!isLoaded && (
-        <div css={[skeletonCSS, cssProp]}>
+        <div
+          css={[
+            skeletonCSS,
+            css`
+              width: 100%;
+              height: 100%;
+            `,
+          ]}
+        >
           <div
             css={css`
               width: ${minHeight ?? 1000}px;
