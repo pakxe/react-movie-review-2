@@ -31,6 +31,8 @@ const movieInfoWrapper = css`
 `;
 
 const movieInfoAndRating = css`
+  min-height: 100%;
+
   flex-grow: 2;
   flex-basis: 0;
 
@@ -60,6 +62,8 @@ const poster = css`
   @media (max-width: 768px) {
     display: none;
   }
+
+  min-width: 0; // 이미지가 자신의 최소 크기를 고집부리지 않도록 함.
 `;
 
 const movieDetailModalStyle = {
