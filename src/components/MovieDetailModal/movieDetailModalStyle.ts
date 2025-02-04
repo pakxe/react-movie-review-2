@@ -2,7 +2,6 @@ import {css} from '@emotion/react';
 
 const container = css`
   height: 100%;
-
   display: flex;
   flex-direction: column;
 
@@ -44,6 +43,7 @@ const movieInfoAndRating = css`
 
 const movieDetail = css`
   width: 100%;
+  height: 100%;
 
   display: flex;
   justify-content: space-between;
