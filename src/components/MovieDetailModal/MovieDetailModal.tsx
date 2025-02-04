@@ -71,7 +71,7 @@ const MovieDetailModal = ({isOpen, onClose, id}: Props) => {
               </div>
               <Text
                 cssProp={css`
-                  height: ${imageHeight - imageHeight * 0.4}px;
+                  height: ${imageHeight !== 0 ? `${imageHeight - imageHeight * 0.4}px` : '20vh'};
 
                   overflow-y: auto;
                 `}
