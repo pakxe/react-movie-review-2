@@ -3,12 +3,14 @@ import {ModalProps} from '../types/modal';
 import {WithChildren} from '../types/with';
 import {useEffect} from 'react';
 import useKeyDown from '../hooks/useKeyDown';
+import usePreventScroll from '../hooks/usePreventScroll';
 
 type Props = WithChildren & ModalProps & {};
 
 // TODO: 스크롤 막기
 const Modal = ({children, onClose, isOpen}: Props) => {
   useKeyDown({key: 'Escape', cb: onClose});
+  usePreventScroll(isOpen);
 
   if (!isOpen) return null;
 
