@@ -35,10 +35,12 @@ const Page = ({children, align, top}: Props) => {
           css={css`
             display: flex;
             flex-direction: column;
-            align-items: start;
             justify-content: center;
 
             gap: 2rem;
+
+            max-width: 1200px;
+            width: 100%;
           `}
         >
           {children}
