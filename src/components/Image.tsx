@@ -1,19 +1,32 @@
 import {css, SerializedStyles, useTheme} from '@emotion/react';
 import {ComponentProps, useState} from 'react';
+import noImage from '../../public/assets/no_image.png';
 
 type Props = Omit<ComponentProps<'img'>, 'onLoad'> & {
   cssProp: SerializedStyles;
+  aspectRatio: number;
   minHeight?: number;
   minWidth?: number;
 };
 
-const Image = ({cssProp, minHeight, minWidth, ...rest}: Props) => {
+const Image = ({cssProp, aspectRatio, minHeight, minWidth, ...rest}: Props) => {
   const {skeletonCSS} = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   return (
-    <div css={cssProp}>
-      <img onLoad={() => setIsLoaded(true)} css={isLoaded ? cssProp : undefined} {...rest} />
+    <div
+      css={css`
+        aspect-ratio: ${aspectRatio};
+      `}
+    >
+      <img
+        onError={() => setHasError(true)}
+        onLoad={() => setIsLoaded(true)}
+        css={isLoaded ? cssProp : undefined}
+        {...rest}
+        src={hasError ? noImage : rest.src} // 🔹 에러 시 대체 이미지로 변경
+      />
       {!isLoaded && (
         <div
           css={[
