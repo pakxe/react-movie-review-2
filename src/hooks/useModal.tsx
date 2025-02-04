@@ -14,7 +14,6 @@ const useModal = () => {
   const [modals, setModals] = useState<Map<ModalKey, Modal>>(new Map());
 
   const open = (key: ModalKey, cb: (isOpen: boolean, onClose: () => void) => React.JSX.Element) => {
-    console.log('h');
     setModals(prev => {
       const newModals = new Map(prev);
       newModals.set(key, {id: key, isOpen: true, cb});
