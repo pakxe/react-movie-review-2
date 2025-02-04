@@ -1,22 +1,20 @@
 import {useEffect, useRef, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import QUERY_PARAMETERS from '../constants/queryParameters';
+import PATHS from '../constants/paths';
 
 const SearchBar = () => {
   const [isInputVisible, setIsInputVisible] = useState(window.innerWidth >= 768);
   const ref = useRef<HTMLInputElement | null>(null);
   const navigate = useNavigate();
 
-  const handleSearch = () => {
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+
     const keyword = ref.current?.value;
     if (!keyword) return;
 
-    navigate(`/${keyword}`);
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      handleSearch();
-    }
+    navigate(`${PATHS.SEARCH}?${QUERY_PARAMETERS.QUERY}=${keyword}`);
   };
 
   useEffect(() => {
@@ -37,12 +35,12 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="search-box">
-      {isInputVisible && <input type="text" placeholder="검색" ref={ref} onKeyDown={handleKeyDown} />}
+    <form className="search-box" onSubmit={handleSearch}>
+      {isInputVisible && <input type="text" placeholder="검색" ref={ref} name={QUERY_PARAMETERS.QUERY} />}
       <button onClick={isInputVisible ? handleSearch : toggleInputVisible} className="search-button">
         검색
       </button>
-    </div>
+    </form>
   );
 };
 
