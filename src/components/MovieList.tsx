@@ -1,4 +1,4 @@
-import MovieItem from './MovieItem';
+import MovieItem from './MovieItem/MovieItem';
 import List from './List';
 
 type Props = {
@@ -9,8 +9,8 @@ const MovieList = ({movies}: Props) => {
   return (
     <List>
       {movies.map(movie => (
-        <li>
-          <MovieItem key={movie.id} {...movie} />
+        <li key={movie.id}>
+          <MovieItem {...movie} />
         </li>
       ))}
     </List>
