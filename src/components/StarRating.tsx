@@ -64,9 +64,8 @@ const StarRating = ({id}: Props) => {
     }
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const newRating = calculateRating(e.clientX);
-    setRating(newRating);
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
+    setRating((index + 1) * 2);
 
     setRatingInLocalStorage(id, rating);
   };
@@ -94,7 +93,6 @@ const StarRating = ({id}: Props) => {
         onMouseMove={handleMouseMove} // 드래그 시 별점 변경
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
-        onClick={handleClick} // 클릭 시 별점 변경
         css={css`
           position: relative;
           width: min-content;
@@ -106,9 +104,10 @@ const StarRating = ({id}: Props) => {
       >
         {[...Array(5)].map((_, index) => (
           <img
+            onMouseDown={e => e.stopPropagation()} // 상위 onMouseDown의 이벤트를 막는다.
+            onClick={e => handleClick(e, index)} // 클릭 시 별점 변경
             key={index}
             src={`assets/star_${rating >= (index + 1) * 2 ? 'filled' : 'empty'}.png`}
-            onDragStart={event => event.preventDefault()}
           />
         ))}
       </div>
