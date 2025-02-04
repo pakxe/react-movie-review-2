@@ -14,7 +14,7 @@ type InfiniteScrollContainer = {
   length?: number;
   hasNextPage: boolean;
 
-  gap: CSSProperties['gap'];
+  gap?: CSSProperties['gap'];
 };
 
 export default function InfiniteScrollContainer({
