@@ -27,6 +27,8 @@ const Page = ({children, align, top}: Props) => {
           display: flex;
           align-items: center;
           justify-content: center;
+
+          padding: 0 16px;
         `}
       >
         <div
