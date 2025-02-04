@@ -3,7 +3,7 @@ import {ComponentProps} from 'react';
 import noImage from '../../public/assets/no_image.png';
 import useLoadImage from '../hooks/useLoadImage';
 
-type Props = Omit<ComponentProps<'img'>, 'onLoad' | 'src'> & {
+type Props = Omit<ComponentProps<'img'>, 'src'> & {
   cssProp: SerializedStyles;
   src: string;
 };
