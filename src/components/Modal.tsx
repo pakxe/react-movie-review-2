@@ -58,8 +58,9 @@ const Content = ({children}: WithChildren & Pick<ModalProps, 'onClose'>) => {
     <div
       css={css`
         z-index: 4;
-        max-width: 826px;
-        width: 100%;
+        max-width: 1000px;
+        width: 70%;
+
         background-color: ${theme.colors.gray5};
 
         @media (max-width: 768px) {
