@@ -18,6 +18,7 @@ const MovieItem = ({id, title, poster_path, vote_average}: Props) => {
         cssProp={movieItemStyle.posterImage}
         minWidth={180}
         minHeight={270}
+        aspectRatio={2 / 3}
       />
       <Text type="bodyBold" cssProp={movieItemStyle.title}>
         {title}
