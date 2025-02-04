@@ -12,13 +12,12 @@ const container = css`
 `;
 
 const posterImage = css`
-  border-radius: 8px;
   width: 100%;
+
+  border-radius: 8px;
 
   aspect-ratio: 2/3;
   object-fit: cover;
-
-  overflow: hidden;
 `;
 
 const title = css`
