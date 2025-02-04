@@ -3,7 +3,6 @@ import {css} from '@emotion/react';
 const container = css`
   cursor: pointer;
 
-  max-width: 180px;
   width: 100%;
 
   display: flex;
