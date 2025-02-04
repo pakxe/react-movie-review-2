@@ -11,7 +11,7 @@ type Props = WithChildren &
     color?: keyof typeof theme.colors;
     required?: boolean;
     lineLimit?: number;
-    cssProp?: SerializedStyles;
+    cssProp?: SerializedStyles | SerializedStyles[];
   };
 
 const Text = ({type = 'body', color, textAlign, required, lineLimit, children, cssProp}: Props) => {
