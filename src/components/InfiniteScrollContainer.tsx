@@ -41,8 +41,8 @@ export default function InfiniteScrollContainer({
   return (
     <div>
       {children}
-      {!isFetching && <div ref={bottom}></div>}
-      {(isFetching || hasNextPage) && skeletonList}
+      <div ref={bottom}></div>
+      {isFetching && hasNextPage && skeletonList}
       {isFetching && <Spinner />}
     </div>
   );
