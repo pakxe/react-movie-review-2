@@ -1,6 +1,7 @@
-import {ReactNode, useEffect, useRef} from 'react';
+import {CSSProperties, ReactNode, useEffect, useRef} from 'react';
 import Spinner from './Spinner';
 import {useObserver} from '../hooks/useObserver';
+import {css} from '@emotion/react';
 
 type InfiniteScrollContainer = {
   children: ReactNode;
@@ -12,6 +13,8 @@ type InfiniteScrollContainer = {
   skeletonList?: ReactNode;
   length?: number;
   hasNextPage: boolean;
+
+  gap: CSSProperties['gap'];
 };
 
 export default function InfiniteScrollContainer({
@@ -23,6 +26,7 @@ export default function InfiniteScrollContainer({
   error,
   skeletonList,
   hasNextPage,
+  gap,
 }: InfiniteScrollContainer) {
   const bottom = useRef(null);
 
@@ -39,11 +43,18 @@ export default function InfiniteScrollContainer({
   }, [isError]);
 
   return (
-    <div>
+    <div
+      css={css`
+        display: flex;
+        flex-direction: column;
+
+        gap: ${gap ?? '2rem'};
+      `}
+    >
       {children}
-      <div ref={bottom}></div>
       {isFetching && hasNextPage && skeletonList}
       {isFetching && <Spinner />}
+      {!isFetching && <div ref={bottom}></div>}
     </div>
   );
 }
