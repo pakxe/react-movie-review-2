@@ -28,6 +28,10 @@ const skeletonCSS = css`
   background-size: 200% 100%;
   animation: ${shimmer} 1.5s infinite linear;
   border-radius: 8px;
+
+  width: 100%;
+
+  overflow: hidden;
 `;
 
 const theme = {
