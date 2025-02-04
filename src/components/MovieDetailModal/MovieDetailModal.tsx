@@ -24,7 +24,6 @@ const MovieDetailModal = ({isOpen, onClose, id}: Props) => {
     if (!(e.target instanceof HTMLImageElement)) return;
     const img = e.target;
 
-    console.log(img.clientHeight);
     setImageHeight(img.clientHeight);
   };
 
