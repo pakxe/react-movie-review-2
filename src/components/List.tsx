@@ -7,8 +7,8 @@ const List = ({children}: WithChildren) => {
       css={css`
         display: grid;
 
-        gap: 4rem; /* 각 아이템 간 간격 */
-        place-items: center; /* 수평 및 수직 중앙 정렬 */
+        gap: 3rem;
+        place-items: center stretch; // width 늘리게
         justify-content: space-between;
         /* 데스크톱: 4개 */
         grid-template-columns: repeat(4, 1fr);
