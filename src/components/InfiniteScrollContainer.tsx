@@ -31,7 +31,7 @@ export default function InfiniteScrollContainer({
   useObserver({
     target: bottom,
     onIntersect,
-    rootMargin: rootMargin + 'px', // 바닥에 덜 잫도록
+    rootMargin: rootMargin + 'px', // 바닥에 덜 닿도록
   });
 
   useEffect(() => {
@@ -39,11 +39,11 @@ export default function InfiniteScrollContainer({
   }, [isError]);
 
   return (
-    <>
+    <div>
       {children}
       {!isFetching && <div ref={bottom}></div>}
       {(isFetching || hasNextPage) && skeletonList}
       {isFetching && <Spinner />}
-    </>
+    </div>
   );
 }
