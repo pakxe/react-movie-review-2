@@ -5,12 +5,10 @@ import useLoadImage from '../hooks/useLoadImage';
 
 type Props = Omit<ComponentProps<'img'>, 'onLoad' | 'src'> & {
   cssProp: SerializedStyles;
-  minHeight?: number;
-  minWidth?: number;
   src: string;
 };
 
-const ImageWithSkeleton = ({cssProp, minHeight, minWidth, ...rest}: Props) => {
+const ImageWithSkeleton = ({cssProp, ...rest}: Props) => {
   const {skeletonCSS} = useTheme();
   const {isLoaded, hasError} = useLoadImage(rest.src);
 
@@ -27,14 +25,7 @@ const ImageWithSkeleton = ({cssProp, minHeight, minWidth, ...rest}: Props) => {
               overflow: hidden;
             `,
           ]}
-        >
-          <div
-            css={css`
-              width: ${minHeight ?? 1000}px;
-              height: ${minWidth ?? 1000}px;
-            `}
-          />
-        </div>
+        />
       )}
     </>
   );

@@ -15,8 +15,6 @@ const MovieItem = ({id, title, poster_path, vote_average}: Props) => {
         loading="lazy"
         alt={title}
         cssProp={movieItemStyle.posterImage}
-        minWidth={180}
-        minHeight={270}
       />
       <Text type="bodyBold" cssProp={movieItemStyle.title}>
         {title}

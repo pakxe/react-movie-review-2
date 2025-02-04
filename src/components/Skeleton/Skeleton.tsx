@@ -24,23 +24,12 @@ const SkeletonText = ({...rest}: SkeletonTextProps) => {
 
 type SkeletonImageProps = {
   cssProp: SerializedStyles | SerializedStyles[];
-  minHeight?: number;
-  minWidth?: number;
 };
 
-const SkeletonImage = ({cssProp, minHeight, minWidth}: SkeletonImageProps) => {
+const SkeletonImage = ({cssProp}: SkeletonImageProps) => {
   const {skeletonCSS} = useTheme();
 
-  return (
-    <div css={[cssProp, skeletonCSS]}>
-      <div
-        css={css`
-          width: ${minWidth ?? 1000}px;
-          height: ${minHeight ?? 1000}px;
-        `}
-      />
-    </div>
-  );
+  return <div css={[cssProp, skeletonCSS]} />;
 };
 
 const Skeleton = {
