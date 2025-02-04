@@ -1,4 +1,4 @@
-import MovieDetailModal from '../components/MovieDetailModal';
+import MovieDetailModal from '../components/MovieDetailModal/MovieDetailModal';
 import MODAL_KEYS from '../constants/modalKeys';
 import {useModalContext} from './useModal';
 
